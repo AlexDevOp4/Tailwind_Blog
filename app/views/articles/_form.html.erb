@@ -1,0 +1,46 @@
+<div class="container ">
+
+
+
+	<%= form_with model: article do |form| %>
+	<form class="space-y-8 divide-y divide-gray-200">
+		<div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+			<div>
+
+				<div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
+					<div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+						<%= form.label :title, class: 'block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2' %>
+
+						<div class="mt-1 sm:mt-0 sm:col-span-2">
+							<%= form.text_field :title , class: 'max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md' %>
+						</div>
+
+						<% article.errors.full_messages_for(:title).each do |message| %>
+						<div><%= message %></div>
+						<% end %>
+					</div>
+
+					<div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+						<%= form.label :body, class: 'block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2' %>
+						<div class="mt-1 sm:mt-0 sm:col-span-2">
+							<%= form.text_area :body, size: "60x10" , class: 'max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md'%>
+						</div>
+					</div>
+
+				</div>
+			</div>
+	</form>
+	
+	
+		<button class="container mx-auto text-2xl mt-10 border-none"><%= form.submit%></button>
+
+
+
+	<% end %>
+		<div class="border-none">
+			<a class="mt-10 " href="/">
+				<i class="fa-solid fa-arrow-left-long text-5xl"></i>
+			</a>
+		</div>
+
+</div>
